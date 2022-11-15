@@ -22,3 +22,11 @@ function save_local_storage(){
     localStorage.setItem('EMAIL ADDRESS', email_address);
     localStorage.setItem('PASSWORD', user_password);
 }
+
+function compare_login(){
+    var userId = localStorage.getItem('USER ID');
+    var email_address = localStorage.getItem('EMAIL ADDRESS');
+    var user_password = localStorage.getItem('PASSWORD');
+
+    
+}
