@@ -1,0 +1,238 @@
+/* OUTPUT A BACKGROUND IMAGE TO DISPLAY ON PAGE */
+body {
+    margin: 0;
+    background-image: url("../Assets/background_image.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* USE FLEXBOX TO DISPLAY LINKS */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+/* STYLING THE LIST */
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 7px 8px;
+    margin: 0 10px 0 0;
+    text-decoration: none;
+    background-color: #e30013;
+    border-radius: 20px;
+}
+
+/* CHANGE STYLE WHEN HOVERING OVER THE LINKS */
+.hover-colour li a:hover {
+    background-color: #bcfd63;
+    color :blue;
+}
+
+/* CHANGE STYLE WHEN PAGE IS SELECTED */
+.hover-colour li a.active {
+    background: linear-gradient(to left, #e30013,#bcfd63);
+    color : black;
+    font-weight: bold;
+}
+
+/* ADD A BACKGROUND FOR THE NAVIGATION BAR */
+.container {
+    display: flex;
+    background: rgba(111, 161, 107, 0.8);
+    padding: 7px 10px;
+}
+
+/* PLACE THE LOGO ON A SPECIFIC PART OF SCREEN */
+img {
+    position: absolute;
+    right: 5px;
+    top: 4px;
+}
+
+/* DISPLAY ON THE LEFT OF SCREEN */
+.box-end {
+    margin-right: auto;
+}
+
+/* REMOVE MARGINS */
+.no-margin {
+    margin: 0 0 0 0;
+}
+
+/* STYLING THE LOGIN BOX */
+.form-box {
+    width: 380px;
+    height: 480px;
+    position: relative;
+    margin: 5% auto;
+    padding: 5px;
+    background-color: lightgreen;
+    overflow: hidden;
+}
+
+/* PLACING AND STYLING THE LOGIN AND REGISTER BUTTONS */
+.button-box {
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px;
+    border-radius: 30px;
+}
+
+.toggle_btn {
+    padding: 10px 27px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+
+#btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #ff105f,#ffad06);
+    border-radius: 30px;
+    transition: .5s;
+}
+
+/* PLACEMENT AND STYLING OF INPUT BOXES FOR USER DETAILS */
+.input-group {
+    top: 180px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+
+.submit-btn {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: 40px 0 20px 20px;
+    background: linear-gradient(to right, #ff105f,#ffad06);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+
+/* PLACEMENT OF LOGIN AND REGISTER FORM */
+#login {
+    left: 50px;
+}
+
+#register {
+    left: 450px;
+}
+
+/* STYLING OF LEADERBOARD BOX */
+.leaderboard-box {
+    width: 96%;
+    position: relative;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* STYLING TABLE OF LEADERBOARD BOX */
+.table-content {
+    border-collapse: collapse;
+    margin: 25px 0;
+    min-width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #35bb2a;
+}
+
+/* STYLING TABLE CONTENT */
+.table-content thead tr {
+    background-color: #35bb2a;
+    color: #000000;
+    text-align: left;
+}
+
+.table-content th,
+.table-content td {
+    padding: 20px 25px;
+}
+
+.table-content tbody tr:nth-of-type(even) {
+    background-color: #bcec85;
+}
+
+.table-content tbody tr:nth-of-type(odd) {
+    background-color: #bcfd63;
+}
+
+/* STYLING GAME BOX ON HOME PAGE */
+.small-game-box {
+    width: 65%;
+    height: 700px;
+    position: absolute;
+    left: 20px;
+    top: 65px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* STYLING LEADERBOARD BOX ON HOME PAGE */
+.small-leaderboard-box {
+    width: 25%;
+    height: 700px;
+    position: absolute;
+    right: 20px;
+    top: 65px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* STYLING GAME BOX ON GAME PAGE */
+.game-box {
+    width: 96%;
+    height: 700px;
+    position: relative;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.title {
+    justify-content: left;
+    padding: 5px 10px;
+}
+
+/* PLACEMENT OF FOOTER */
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer ul {
+    justify-content: end;
+}
+
+.game-link {
+    display: block;
+    height: 100%;
+}
