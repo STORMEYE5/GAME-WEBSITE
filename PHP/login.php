@@ -21,7 +21,7 @@
         <form id="login" class="input-group">
             <input id="login_userId" class="input-field" placeholder="User ID" required>
             <input id="login_password" type="text" class="input-field" placeholder="Password" required>
-            <button type="submit" class="submit-btn" onclick="">Log in</button>
+            <button type="submit" class="submit-btn" onclick="compare_login()">Log in</button>
         </form>
         <form id="register" class="input-group">
             <input id="register_userId" type="text" class="input-field" placeholder="User ID" required>

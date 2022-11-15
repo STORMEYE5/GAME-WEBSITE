@@ -25,8 +25,18 @@ function save_local_storage(){
 
 function compare_login(){
     var userId = localStorage.getItem('USER ID');
-    var email_address = localStorage.getItem('EMAIL ADDRESS');
     var user_password = localStorage.getItem('PASSWORD');
 
-    
+    var input_id = document.getElementById("login_userId").value;
+    var input_password = document.getElementById("login_password").value;
+
+    localStorage.setItem('ID', input_id);
+    localStorage.setItem('EMAIL', input_password);
+
+    if (input_id == userId && user_password == input_password) {
+        window.location.href="game.php";
+        alert('ACCEPTED CREDENTIALS')
+    } else {
+        alert('WRONG CREDENTIALS');
+    }
 }
