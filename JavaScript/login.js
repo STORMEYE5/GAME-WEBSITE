@@ -34,7 +34,7 @@ function compare_login(){
     localStorage.setItem('EMAIL', input_password);
 
     if (input_id == userId && user_password == input_password) {
-        window.location.href="game.php";
+        window.open("/GAME_WEBSITE/PHP/game.php","_self");
         alert('ACCEPTED CREDENTIALS')
     } else {
         alert('WRONG CREDENTIALS');
