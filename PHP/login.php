@@ -21,13 +21,15 @@
         <form id="login" class="input-group">
             <input id="login_userId" class="input-field" placeholder="User ID" required>
             <input id="login_password" type="text" class="input-field" placeholder="Password" required>
-            <button type="submit" class="submit-btn" onclick="compare_login()">Log in</button>
+            <button id="submit_btn" type="submit" class="submit-btn">Log in</button>
         </form>
         <form id="register" class="input-group">
             <input id="register_userId" type="text" class="input-field" placeholder="User ID" required>
             <input id="email_address" type="email" class="input-field" placeholder="Email Address" required>
             <input id="register_password" type="text" class="input-field" placeholder="Password" required>
-            <button type="submit" class="submit-btn" onclick="save_local_storage()">Register</button>
+            <input id="phone_Id" type="text" class="input-field" placeholder="Phone Number" required>
+            <input id="address_Id" type="text" class="input-field" placeholder="Address" required>
+            <button id="submit_btn" type="submit" class="submit-btn">Register</button>
         </form>
     </div>
 

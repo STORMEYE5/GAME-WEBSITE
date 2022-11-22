@@ -106,7 +106,7 @@ img {
 
 /* PLACEMENT AND STYLING OF INPUT BOXES FOR USER DETAILS */
 .input-group {
-    top: 180px;
+    top: 150px;
     position: absolute;
     width: 280px;
     transition: .5s;
