@@ -105,7 +105,3 @@ function user_login(){
         }
     }
 }
-
-function prevent(e) {
-    e.preventDefault();
-}
