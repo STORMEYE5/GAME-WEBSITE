@@ -1,5 +1,5 @@
 let password_check = RegExp("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})");
-let reg_btn;
+let btn_click;
 
 var x = document.getElementById("login");
 var y = document.getElementById("register");
@@ -7,13 +7,13 @@ var z = document.getElementById("btn");
 
 window.onload = function ()
 {
-    reg_btn = document.getElementsByClassName("submit-btn");
+    btn_click = document.getElementsByClassName("submit-btn");
 
-    reg_btn[0].onclick = user_login;
-    reg_btn[1].onclick = registration;
+    btn_click[0].onclick = user_login;
+    btn_click[1].onclick = registration;
 
-    reg_btn[0].disabled = true;
-    reg_btn[1].disabled = true;
+    btn_click[0].disabled = true;
+    btn_click[1].disabled = true;
 
     verified_password = document.getElementById("register_password");
     verified_password.onkeyup = checkRegistrationPassword;
@@ -38,14 +38,14 @@ function checkRegistrationPassword() {
     let verified_password = document.getElementById("register_password").value;
     let result = password_check.test(verified_password);
 
-    reg_btn[1].disabled = !result;
+    btn_click[1].disabled = !result;
 }
 
 function checkLoginPassword() {
     let rnd_password = document.getElementById("login_password").value;
     let result1 = password_check.test(rnd_password);
 
-    reg_btn[0].disabled = !result1;
+    btn_click[0].disabled = !result1;
 }
 
 function registration(){
@@ -59,7 +59,7 @@ function registration(){
         alert('INVALID CREDENTIALS');
     }
     else {
-        reg_btn[1].disabled = false;
+        btn_click[1].disabled = false;
 
         userId_check = JSON.parse(localStorage.getItem(reg_userId));
 
@@ -74,6 +74,7 @@ function registration(){
         Password: reg_user_password,
         "Phone Number": reg_phone_number,
         Address: reg_address,
+        Highscore: 0,
     };
 
     let my_object_string = JSON.stringify(my_object);
@@ -96,7 +97,7 @@ function user_login(){
         alert('INVALID CREDENTIALS');
     }
     else {
-        reg_btn[0].disabled = false;
+        btn_click[0].disabled = false;
 
         if ((login_input.input_id) == userId && (login_input.input_password) == user_password) {
             alert('ACCEPTED CREDENTIALS');
