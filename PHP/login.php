@@ -24,11 +24,11 @@
             <button id="submit_btn" type="submit" class="submit-btn">Log in</button>
         </form>
         <form id="register" class="input-group">
-            <input id="register_userId" type="text" class="input-field" placeholder="User ID" required>
-            <input id="email_address" type="email" class="input-field" placeholder="Email Address" required>
-            <input id="register_password" type="text" class="input-field" placeholder="Password" required>
-            <input id="phone_Id" type="text" class="input-field" placeholder="Phone Number" required>
-            <input id="address_Id" type="text" class="input-field" placeholder="Address" required>
+            <input id="register_userId" type="text" class="input-field" placeholder="User ID" autocomplete="off" required>
+            <input id="email_address" type="email" class="input-field" placeholder="Email Address" autocomplete="off" required>
+            <input id="register_password" type="password" class="input-field" placeholder="Password" autocomplete="off" required>
+            <input id="phone_Id" type="text" class="input-field" placeholder="Phone Number" autocomplete="off" required>
+            <input id="address_Id" type="text" class="input-field" placeholder="Address" autocomplete="off" required>
             <button id="submit_btn" type="submit" class="submit-btn">Register</button>
         </form>
     </div>
