@@ -65,18 +65,7 @@ function registration(){
 
         if (userId_check != null) {
             alert('USERNAME IS ALREADY TAKEN');
-        }
-        else {
-            // var i, l;
-            // for (i = 0; i < localStorage.length; i++) {
-            //     l = localStorage.key[i];
-            //     var email_address_check = JSON.parse(localStorage.getItem(l));
-            //     var stored_email = email_address_check.Email;
-            //     if (reg_email_address == stored_email) {
-            //         alert('EMAIL IS ALREADY IN USE');
-            //         break;
-            //     }
-            //     else {
+        } else if (localStorage.length == 0) {
                     let my_object = {
                         ID: reg_userId,
                         Email: reg_email_address,
@@ -89,10 +78,36 @@ function registration(){
                     let my_object_string = JSON.stringify(my_object);
                 
                     localStorage.setItem(reg_userId, my_object_string);
-                // }
+        } else {
+            var i, l;
+            for (i = 0; i < localStorage.length; i++) {
+                l = localStorage.key(i);
+                let email_address_check = JSON.parse(localStorage.getItem(l));
+                var stored_email = (email_address_check.Email);
+                if (reg_email_address == stored_email) {
+                    alert('EMAIL IS ALREADY IN USE');
+                    break;
+                } else if (i != (localStorage.length - 1)) {
+                    continue;
+                }
+                else {
+                    let my_object = {
+                        ID: reg_userId,
+                        Email: reg_email_address,
+                        Password: reg_user_password,
+                        "Phone Number": reg_phone_number,
+                        Address: reg_address,
+                        Highscore: 0,
+                    };
+                
+                    let my_object_string = JSON.stringify(my_object);
+                
+                    localStorage.setItem(reg_userId, my_object_string);
+                }  
             }
         }
     }
+}
 
 function user_login(){
     let login_input = {
