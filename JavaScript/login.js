@@ -22,7 +22,6 @@ window.onload = function ()
     rnd_password.onkeyup = checkLoginPassword;
 }
 
-
 function register(){
     x.style.left = "-400px";
     y.style.left = "50px";
@@ -66,18 +65,7 @@ function registration(){
         if (userId_check != null) {
             alert('USERNAME IS ALREADY TAKEN');
         } else if (localStorage.length == 0) {
-                    let my_object = {
-                        ID: reg_userId,
-                        Email: reg_email_address,
-                        Password: reg_user_password,
-                        "Phone Number": reg_phone_number,
-                        Address: reg_address,
-                        Highscore: 0,
-                    };
-                
-                    let my_object_string = JSON.stringify(my_object);
-                
-                    localStorage.setItem(reg_userId, my_object_string);
+                    save_to_local_storage(reg_userId, reg_email_address, reg_user_password, reg_phone_number, reg_address);
         } else {
             var i, l;
             for (i = 0; i < localStorage.length; i++) {
@@ -91,18 +79,7 @@ function registration(){
                     continue;
                 }
                 else {
-                    let my_object = {
-                        ID: reg_userId,
-                        Email: reg_email_address,
-                        Password: reg_user_password,
-                        "Phone Number": reg_phone_number,
-                        Address: reg_address,
-                        Highscore: 0,
-                    };
-                
-                    let my_object_string = JSON.stringify(my_object);
-                
-                    localStorage.setItem(reg_userId, my_object_string);
+                    save_to_local_storage(reg_userId, reg_email_address, reg_user_password, reg_phone_number, reg_address);
                 }  
             }
         }
@@ -132,4 +109,19 @@ function user_login(){
             alert('WRONG CREDENTIALS');
         }
     }
+}
+
+function save_to_local_storage(reg_userId, reg_email_address, reg_user_password, reg_phone_number, reg_address) {
+    let my_object = {
+        ID: reg_userId,
+        Email: reg_email_address,
+        Password: reg_user_password,
+        "Phone Number": reg_phone_number,
+        Address: reg_address,
+        Highscore: 0,
+    };
+
+    let my_object_string = JSON.stringify(my_object);
+
+    localStorage.setItem(reg_userId, my_object_string);
 }
