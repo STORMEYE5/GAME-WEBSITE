@@ -19,8 +19,8 @@
             <button type="button" class="toggle_btn" onclick="register()">REGISTER</button>
         </div>
         <form id="login" class="input-group">
-            <input id="login_userId" class="input-field" placeholder="User ID" required>
-            <input id="login_password" type="text" class="input-field" placeholder="Password" required>
+            <input id="login_userId" class="input-field" placeholder="User ID" autocomplete="off" required>
+            <input id="login_password" type="password" class="input-field" placeholder="Password" autocomplete="off" required>
             <button id="submit_btn" type="submit" class="submit-btn">Log in</button>
         </form>
         <form id="register" class="input-group">
