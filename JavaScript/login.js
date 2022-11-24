@@ -63,7 +63,7 @@ function registration(){
         if (userId_check != null) {
             alert('USERNAME IS ALREADY TAKEN');
         } else if (localStorage.length == 0) {
-                    save_to_local_storage(reg_userId, reg_email_address, reg_user_password, reg_phone_number, reg_address);
+            save_to_local_storage(reg_userId, reg_email_address, reg_user_password, reg_phone_number, reg_address);
         } else {
             var i, l;
             for (i = 0; i < localStorage.length; i++) {
@@ -100,13 +100,12 @@ function user_login(){
     }
     else {
         if ((login_input.input_id) == userId && (login_input.input_password) == user_password) {
-            // alert('ACCEPTED CREDENTIALS');
-            location.replace("localhost/GAME_WEBSITE/PHP/game.php");
+            alert('ACCEPTED CREDENTIALS');
+            window.location.href = "/GAME_WEBSITE/PHP/game.php";
         } else {
             alert('WRONG CREDENTIALS');
         }
     }
-    document.getElementById("output").innerHTML = "WELCOME " + userId;
 }
 
 function save_to_local_storage(reg_userId, reg_email_address, reg_user_password, reg_phone_number, reg_address) {
@@ -122,4 +121,6 @@ function save_to_local_storage(reg_userId, reg_email_address, reg_user_password,
     let my_object_string = JSON.stringify(my_object);
 
     localStorage.setItem(reg_userId, my_object_string);
+
+    location.reload();
 }
