@@ -64,6 +64,7 @@ img {
     margin: 0 0 0 0;
 }
 
+/* LOGIN PAGE
 /* STYLING THE LOGIN BOX */
 .form-box {
     width: 380px;
@@ -145,6 +146,7 @@ img {
     left: 450px;
 }
 
+/* LEADERBOARD PAGE
 /* STYLING OF LEADERBOARD BOX */
 .leaderboard-box {
     width: 96%;
@@ -184,6 +186,7 @@ img {
     background-color: #bcfd63;
 }
 
+/* HOME PAGE
 /* STYLING GAME BOX ON HOME PAGE */
 .small-game-box {
     width: 65%;
@@ -206,6 +209,12 @@ img {
     border-radius: 10px;
 }
 
+.game-link {
+    display: block;
+    height: 100%;
+}
+
+/* GAME PAGE
 /* STYLING GAME BOX ON GAME PAGE */
 .game-box {
     width: 96%;
@@ -230,9 +239,4 @@ footer {
 
 footer ul {
     justify-content: end;
-}
-
-.game-link {
-    display: block;
-    height: 100%;
 }

@@ -33,6 +33,10 @@
         </form>
     </div>
 
+    <div class="welcome">
+        <h1 id="output" style="text-align: center;"> WELCOME</h1>
+    </div>
+
     <script src="../JavaScript/login.js"></script>
 
 <?php

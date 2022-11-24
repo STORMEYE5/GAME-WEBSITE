@@ -58,8 +58,6 @@ function registration(){
         alert('INVALID CREDENTIALS');
     }
     else {
-        btn_click[1].disabled = false;
-
         userId_check = JSON.parse(localStorage.getItem(reg_userId));
 
         if (userId_check != null) {
@@ -101,14 +99,14 @@ function user_login(){
         alert('INVALID CREDENTIALS');
     }
     else {
-        btn_click[0].disabled = false;
-
         if ((login_input.input_id) == userId && (login_input.input_password) == user_password) {
-            alert('ACCEPTED CREDENTIALS');
+            // alert('ACCEPTED CREDENTIALS');
+            location.replace("localhost/GAME_WEBSITE/PHP/game.php");
         } else {
             alert('WRONG CREDENTIALS');
         }
     }
+    document.getElementById("output").innerHTML = "WELCOME " + userId;
 }
 
 function save_to_local_storage(reg_userId, reg_email_address, reg_user_password, reg_phone_number, reg_address) {
