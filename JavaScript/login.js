@@ -49,6 +49,7 @@ function checkLoginPassword() {
 
 function registration(){
     var reg_userId = document.getElementById("register_userId").value;
+    var reg_name = document.getElementById("name").value;
     var reg_email_address = document.getElementById("email_address").value;
     var reg_user_password = document.getElementById("register_password").value;
     var reg_phone_number = document.getElementById("phone_Id").value;
@@ -63,7 +64,7 @@ function registration(){
         if (userId_check != null) {
             alert('USERNAME IS ALREADY TAKEN');
         } else if (localStorage.length == 0) {
-            save_to_local_storage(reg_userId, reg_email_address, reg_user_password, reg_phone_number, reg_address);
+            save_to_local_storage(reg_userId, reg_name, reg_email_address, reg_user_password, reg_phone_number, reg_address);
         } else {
             var i, l;
             for (i = 0; i < localStorage.length; i++) {
@@ -77,30 +78,36 @@ function registration(){
                     continue;
                 }
                 else {
-                    save_to_local_storage(reg_userId, reg_email_address, reg_user_password, reg_phone_number, reg_address);
+                    save_to_local_storage(reg_userId, reg_name, reg_email_address, reg_user_password, reg_phone_number, reg_address);
                 }  
             }
         }
     }
 }
 
-function user_login(){
-    let login_input = {
-        input_id: (document.getElementById("login_userId").value),
-        input_password: (document.getElementById("login_password").value),
-    };
+function user_login() {
+    var sign_id = document.getElementById("login_userId").value;
+    var sign_password = document.getElementById("login_password").value;
 
-    let my_object_destring = JSON.parse(localStorage.getItem(login_input.input_id));
+    // sessionId_check = JSON.parse(sessionStorage.getItem(sign_id));
+
+    if (sessionStorage.length != 0) {
+        alert('YOU NEED TO LOG OUT FIRST');
+        return;
+    }
+
+    let my_object_destring = JSON.parse(localStorage.getItem(sign_id));
 
     var userId = (my_object_destring.ID);
     var user_password = (my_object_destring.Password);
 
-    if ((login_input.input_id) == '' && (login_input.input_password) == '') {
+    if ((sign_id) == '' && (sign_password) == '') {
         alert('INVALID CREDENTIALS');
     }
     else {
-        if ((login_input.input_id) == userId && (login_input.input_password) == user_password) {
+        if ((sign_id) == userId && (sign_password) == user_password) {
             alert('ACCEPTED CREDENTIALS');
+            save_to_session_storage(userId)
             window.location.href = "/GAME_WEBSITE/PHP/game.php";
         } else {
             alert('WRONG CREDENTIALS');
@@ -108,9 +115,10 @@ function user_login(){
     }
 }
 
-function save_to_local_storage(reg_userId, reg_email_address, reg_user_password, reg_phone_number, reg_address) {
+function save_to_local_storage(reg_userId, reg_name, reg_email_address, reg_user_password, reg_phone_number, reg_address) {
     let my_object = {
         ID: reg_userId,
+        Name: reg_name, 
         Email: reg_email_address,
         Password: reg_user_password,
         "Phone Number": reg_phone_number,
@@ -123,4 +131,21 @@ function save_to_local_storage(reg_userId, reg_email_address, reg_user_password,
     localStorage.setItem(reg_userId, my_object_string);
 
     location.reload();
+}
+
+function save_to_session_storage(userId) {
+    parsed_object = JSON.parse(localStorage.getItem(userId));
+
+    var temp_name = (parsed_object.Name);
+    var temp_nhighscore = (parsed_object.Highscore);
+
+    let session_object = {
+        ID: userId,
+        Name: temp_name, 
+        Highscore: temp_nhighscore,
+    };
+
+    let session_object_string = JSON.stringify(session_object);
+
+    sessionStorage.setItem(userId, session_object_string);
 }

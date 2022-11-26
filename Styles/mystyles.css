@@ -107,7 +107,7 @@ img {
 
 /* PLACEMENT AND STYLING OF INPUT BOXES FOR USER DETAILS */
 .input-group {
-    top: 150px;
+    top: 120px;
     position: absolute;
     width: 280px;
     transition: .5s;
@@ -140,6 +140,7 @@ img {
 /* PLACEMENT OF LOGIN AND REGISTER FORM */
 #login {
     left: 50px;
+    padding: 30px 0 0 0;
 }
 
 #register {
