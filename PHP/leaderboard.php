@@ -21,46 +21,18 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>ALI</td>
-                <td>126</td>
-            </tr>
-            <tr>
-                <td>TOM</td>
-                <td>118</td>
-            </tr>
-            <tr>
-                <td>MEGALODON</td>
-                <td>112</td>
-            </tr>
-            <tr>
-                <td>JET</td>
-                <td>109</td>
-            </tr>
-            <tr>
-                <td>TRACK</td>
-                <td>97</td>
-            </tr>
-            <tr>
-                <td>?</td>
-                <td>?</td>
-            </tr>
-            <tr>
-                <td>?</td>
-                <td>?</td>
-            </tr>
-            <tr>
-                <td>?</td>
-                <td>?</td>
-            </tr>
-            <tr>
-                <td>?</td>
-                <td>?</td>
-            </tr>
-            <tr>
-                <td>?</td>
-                <td>?</td>
-            </tr>
+                <?php
+                $Names = ["ALI","TOM","MEGALODON","JET","TRACK","?","?","?","?","?"];
+                $Scores = ["126","118","112","109","97","?","?","?","?","?"];
+                for ($i = 0; $i < count($Names); $i++) {
+                    echo <<< END
+                    <tr>
+                        <td>$Names[$i]</td>
+                        <td>$Scores[$i]</td>
+                    </tr>
+                    END;
+                }
+                ?>
             </tbody>
         </table>
     </div>

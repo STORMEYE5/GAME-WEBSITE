@@ -28,17 +28,20 @@ END;
 // FUNCTION TO OUTPUT NAVIGATION LINKS
 function outputNavigation($pageName)
 {
-    $linkNames = array("LOGIN", "GAME", "LEADERBOARD");
-    $linkAddresses = array("login.php", "game.php", "leaderboard.php");
-    for ($x = 0; $x < count($linkNames); $x++) {
-        if ($linkNames[$x] == $pageName)
-            echo <<< END
-          <li><a class="active" href="$linkAddresses[$x]">$linkNames[$x]</a></li>
+    $links = array("LOGIN" => "login.php", "GAME" => "game.php", "LEADERBOARD" => "leaderboard.php");
+
+    foreach ($links as $linkName => $linkAddress) {
+      if ($linkName == $pageName) {
+        echo <<< END
+          <li><a class="active" href="$linkAddress">$linkName</a></li>
 END;
-        else
-            echo <<< END
-          <li><a href="$linkAddresses[$x]">$linkNames[$x]</a></li>
+      }
+            
+      else {
+        echo <<< END
+          <li><a href="$linkAddress">$linkName</a></li>
 END;
+      }    
     }
 }
 
@@ -70,9 +73,28 @@ function output_footer(){
       </div>
       <div class="hover-colour">
         <ul class="hover-colour">
-          <li><a href="about us.html">ABOUT US</a></li>
-          <li><a>TERMS AND CONDITIONS</a></li>
-          <li><a class="no-margin">CONTACT US</a></li>
+END;
+    $links_about = array(1 => "ABOUT US", 2 => "TERMS AND CONDITIONS", 3 => "CONTACT US");
+    foreach($links_about as $number => $about_names) {
+      switch ($number) {
+        case 1:
+          echo <<< END
+          <li><a>$about_names</a></li>
+END;
+          break;
+        case 2:
+          echo <<< END
+          <li><a>$about_names</a></li>
+END;
+          break;
+        case 3:
+          echo <<< END
+          <li><a class="no-margin">$about_names</a></li>
+END;
+          break;
+      }
+    }
+    echo <<< END
         </ul>
       </div>
     </div>
