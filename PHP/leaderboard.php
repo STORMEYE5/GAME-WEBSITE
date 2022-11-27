@@ -36,6 +36,9 @@
             </tbody>
         </table>
     </div>
+    <h1 class="text" id="welcome-text">WELCOME</h1>
+
+    <script src="../JavaScript/leaderboard.js"></script>
 
 <?php
     //Output footer

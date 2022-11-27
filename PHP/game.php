@@ -12,6 +12,7 @@
 ?>
 	
 	<!-- Contents of the page -->
+    <h1 class="text" id="welcome-text">WELCOME</h1>
     <div class="game-box">
         <div class="title">GAME</div>
     </div>
