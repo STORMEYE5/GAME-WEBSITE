@@ -36,9 +36,12 @@
             </tbody>
         </table>
     </div>
+    
     <h1 class="text" id="welcome-text">WELCOME</h1>
 
-    <script src="../JavaScript/leaderboard.js"></script>
+    <script type="text/javascript">var jArray =<?php echo json_encode($Names); ?></script>
+    <script type="text/javascript">var jArray2 =<?php echo json_encode($Scores); ?></script>
+    <script type="text/javascript"src="../JavaScript/leaderboard.js"></script>
 
 <?php
     //Output footer

@@ -65,6 +65,7 @@ function registration(){
             alert('USERNAME IS ALREADY TAKEN');
         } else if (localStorage.length == 0) {
             save_to_local_storage(reg_userId, reg_name, reg_email_address, reg_user_password, reg_phone_number, reg_address);
+            //return;
         } else {
             var i, l;
             for (i = 0; i < localStorage.length; i++) {
@@ -76,9 +77,9 @@ function registration(){
                     break;
                 } else if (i != (localStorage.length - 1)) {
                     continue;
-                }
-                else {
+                } else {
                     save_to_local_storage(reg_userId, reg_name, reg_email_address, reg_user_password, reg_phone_number, reg_address);
+                    break;
                 }  
             }
         }
@@ -129,6 +130,8 @@ function save_to_local_storage(reg_userId, reg_name, reg_email_address, reg_user
     let my_object_string = JSON.stringify(my_object);
 
     localStorage.setItem(reg_userId, my_object_string);
+
+    alert('SUCCESSFULLY REGISTERED');
 
     location.reload();
 }
