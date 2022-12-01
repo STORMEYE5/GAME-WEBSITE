@@ -48,7 +48,7 @@ li a {
 }
 
 /* PLACE THE LOGO ON A SPECIFIC PART OF SCREEN */
-img {
+img{
     position: absolute;
     right: 5px;
     top: 4px;
@@ -151,23 +151,26 @@ img {
 /* STYLING OF LEADERBOARD BOX */
 .leaderboard-box {
     width: 96%;
+    height: 80vh;
     position: relative;
     margin: auto;
     background-color: white;
     border-radius: 10px;
+    border: 2px solid red;
 }
 
 /* STYLING TABLE OF LEADERBOARD BOX */
-.table-content {
+/* .table-content {
     border-collapse: collapse;
     margin: 25px 0;
     min-width: 100%;
     border-radius: 10px;
     overflow: hidden;
     background-color: #35bb2a;
-}
+} */
 
 /* STYLING TABLE CONTENT */
+/*
 .table-content thead tr {
     background-color: #35bb2a;
     color: #000000;
@@ -186,8 +189,21 @@ img {
 .table-content tbody tr:nth-of-type(odd) {
     background-color: #bcfd63;
 }
+*/
 
-/* HOME PAGE
+.box-title {
+    display: flex;
+    flex-direction: row;
+    background-color: #35bb2a;
+}
+
+.box-div {
+    height: 20px;
+    width: 50%;
+    border: 2px solid red;
+}
+
+/* HOME PAGE */
 /* STYLING GAME BOX ON HOME PAGE */
 .small-game-box {
     width: 65%;
@@ -265,4 +281,12 @@ footer {
 
 footer ul {
     justify-content: end;
+}
+
+#myCanvas {
+    /* width: 96%;
+    max-height: 700px; */
+    position: relative;
+    left: 2%;
+    border-radius: 10px;
 }

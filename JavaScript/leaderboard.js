@@ -28,6 +28,8 @@ window.onload = function() {
     }
 
     sortArray();
+
+    score_details;
 }
 
 function sortArray() {

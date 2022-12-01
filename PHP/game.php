@@ -13,9 +13,13 @@
 	
 	<!-- Contents of the page -->
     <h1 class="text" id="welcome-text">WELCOME</h1>
-    <div class="game-box">
+    <!-- <div class="game-box">
         <div class="title">GAME</div>
-    </div>
+    </div> -->
+
+    <canvas id="myCanvas" height="700" width="700"></canvas>
+
+    <script type="text/javascript"src="../JavaScript/game.js"></script>
 
 <?php
     //Output footer
