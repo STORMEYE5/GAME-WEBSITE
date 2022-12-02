@@ -43,17 +43,10 @@ let x2 = 650;
 let y2 = 630;
 
 const myInterval = setInterval(draw, 1000);
+const myInterval2 = setInterval(draw2, 1000);
 
 function draw() {
     random_generator()
-    context2.clearRect(0, 0, canvas2.width, canvas2.height);
-    context3.clearRect(0, 0, canvas2.width, canvas2.height);
-
-    context2.beginPath()
-    context2.arc(x2, y2, 13, 0, 2 * Math.PI);
-    context2.fillStyle = "blue";
-    context2.fill();
-    context2.closePath();
 
     context3.beginPath()
     context3.arc(x, y, 13, 0, 2 * Math.PI);
@@ -111,6 +104,18 @@ function draw() {
             continue;
         } 
     }
+    clearInterval(myInterval);
+}
+
+function draw2() {    
+    random_generator()
+    // context2.clearRect(0, 0, canvas2.width, canvas2.height);
+
+    context2.beginPath()
+    context2.arc(x2, y2, 13, 0, 2 * Math.PI);
+    context2.fillStyle = "blue";
+    context2.fill();
+    context2.closePath();
 
     for (let num = 0; num < rndNum; num++) {
         if (x2 == 650 && y2 == 630) {
@@ -162,5 +167,20 @@ function draw() {
             continue;
         } 
     }
-    clearInterval(myInterval);
+    clearInterval(myInterval2);
+}
+
+function update() {
+    context2.clearRect(0, 0, canvas2.width, canvas2.height);
+    context3.clearRect(0, 0, canvas2.width, canvas2.height);
+
+    let turn = true;
+
+    if (turn) {
+        draw();
+        turn = false;
+    } else {
+        draw2();
+        turn = true;
+    }
 }
