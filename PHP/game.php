@@ -18,6 +18,9 @@
     </div> -->
 
     <canvas id="myCanvas" height="700" width="700"></canvas>
+    <canvas id="myCanvas2" height="700" width="700"></canvas>
+
+    <button id="click" type="button" onclick="draw()">click</button>
 
     <script type="text/javascript"src="../JavaScript/game.js"></script>
 

@@ -284,9 +284,18 @@ footer ul {
 }
 
 #myCanvas {
-    /* width: 96%;
-    max-height: 700px; */
     position: relative;
     left: 2%;
     border-radius: 10px;
+}
+
+#myCanvas2 {
+    position: absolute;
+    left: 2%;
+    border-radius: 10px;
+}
+
+#click {
+    position: absolute;
+    right: 100px;
 }
