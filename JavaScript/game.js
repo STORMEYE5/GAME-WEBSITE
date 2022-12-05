@@ -1,6 +1,5 @@
 window.onload = function () {
-    // let btn_click = document.getElementById("click");
-    // btn_click.onclick = update();
+    update();
 }
 var rndNum;
 var c = document.getElementById("myCanvas");
@@ -110,6 +109,14 @@ function draw() {
     clearInterval(myInterval);
 }
 
+function initial_position() {
+    context2.beginPath()
+    context2.arc(x2, y2, 13, 0, 2 * Math.PI);
+    context2.fillStyle = "red";
+    context2.fill();
+    context2.closePath();
+}
+
 function draw2() {
     if (player2_turn){
         random_generator()
@@ -173,14 +180,6 @@ function draw2() {
         }
     }
     clearInterval(myInterval2);
-}
-
-function initial_position() {
-    context2.beginPath()
-    context2.arc(x2, y2, 13, 0, 2 * Math.PI);
-    context2.fillStyle = "red";
-    context2.fill();
-    context2.closePath();
 }
 
 function initial_position2() {
