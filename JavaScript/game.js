@@ -23,15 +23,15 @@ img.onload = () => {
 
 var canvas2 = document.getElementById("myCanvas2");
 var context2 = canvas2.getContext("2d");
+var canvas3 = document.getElementById("myCanvas3");
 var context3 = canvas2.getContext("2d");
 
 // var rndNum = Math.floor((Math.random() * 6) + 1);
 // document.getElementById("click").innerHTML = rndNum;
 
 function random_generator() {
-    rndNum = 1;
-    // rndNum = Math.floor((Math.random() * 6) + 1);
-    // document.getElementById("click").innerHTML = rndNum;
+    rndNum = Math.floor((Math.random() * 6) + 1);
+    document.getElementById("click").innerHTML = rndNum;
 }
 
 let dx = -58;
@@ -45,75 +45,15 @@ let y2 = 630;
 const myInterval = setInterval(draw, 1000);
 const myInterval2 = setInterval(draw2, 1000);
 
-function draw() {
-    random_generator()
-
-    context3.beginPath()
-    context3.arc(x, y, 13, 0, 2 * Math.PI);
-    context3.fillStyle = "red";
-    context3.fill();
-    context3.closePath();
-
-    for (let num = 0; num < rndNum; num++) {
-        if (x == 650 && y == 660) {
-            x += -72;
-            continue;
-        } 
-        if (x < 600 && x > 150 && y == 660) {
-            x += -58;
-            continue;
-        }
-        if (x > 100 && x < 150 && y == 660) {
-            x += -72;
-            continue;
-        } 
-        if (x < 100 && y == 660) {
-            y += -72;
-            continue;
-        } 
-        if (y < 600 && y > 150 && x < 100) {
-            y += -58;
-            continue;
-        }
-        if (y > 100 && y < 150 && x < 100) {
-            y += -72;
-            continue;
-        } 
-        if (x < 100 && y < 100) {
-            x += 72;
-            continue;
-        } 
-        if (x < 550 && x > 100 && y < 100) {
-            x += 58;
-            continue;
-        }
-        if (x > 550 && x < 600 && y < 100) {
-            x += 72;
-            continue;
-        } 
-        if (x == 650 && y < 100) {
-            y += 72;
-            continue;
-        } 
-        if (y < 550 && y > 100 && x == 650) {
-            y += 58;
-            continue;
-        } 
-        if (y > 550 && y < 600 && x == 650) {
-            y += 72;
-            continue;
-        } 
+function draw() {    
+    if (player1_turn){
+        random_generator()
     }
-    clearInterval(myInterval);
-}
-
-function draw2() {    
-    random_generator()
-    // context2.clearRect(0, 0, canvas2.width, canvas2.height);
-
+    context2.clearRect(0, 0, canvas2.width, canvas2.height);
+   
     context2.beginPath()
     context2.arc(x2, y2, 13, 0, 2 * Math.PI);
-    context2.fillStyle = "blue";
+    context2.fillStyle = "red";
     context2.fill();
     context2.closePath();
 
@@ -167,20 +107,121 @@ function draw2() {
             continue;
         } 
     }
+    clearInterval(myInterval);
+}
+
+function draw2() {
+    if (player2_turn){
+        random_generator()
+    }
+    context3.clearRect(0, 0, canvas3.width, canvas3.height);
+
+    context3.beginPath()
+    context3.arc(x, y, 13, 0, 2 * Math.PI);
+    context3.fillStyle = "blue";
+    context3.fill();
+    context3.closePath();
+
+    for (let num = 0; num < rndNum; num++) {
+        if (x == 650 && y == 660) {
+            x += -72;
+            continue;
+        } 
+        if (x < 600 && x > 150 && y == 660) {
+            x += -58;
+            continue;
+        }
+        if (x > 100 && x < 150 && y == 660) {
+            x += -72;
+            continue;
+        } 
+        if (x < 100 && y == 660) {
+            y += -72;
+            continue;
+        } 
+        if (y < 600 && y > 150 && x < 100) {
+            y += -58;
+            continue;
+        }
+        if (y > 100 && y < 150 && x < 100) {
+            y += -72;
+            continue;
+        } 
+        if (x < 100 && y < 100) {
+            x += 72;
+            continue;
+        } 
+        if (x < 550 && x > 100 && y < 100) {
+            x += 58;
+            continue;
+        }
+        if (x > 550 && x < 600 && y < 100) {
+            x += 72;
+            continue;
+        } 
+        if (x == 650 && y < 100) {
+            y += 72;
+            continue;
+        } 
+        if (y < 550 && y > 100 && x == 650) {
+            y += 58;
+            continue;
+        } 
+        if (y > 550 && y < 600 && x == 650) {
+            y += 72;
+            continue;
+        }
+    }
     clearInterval(myInterval2);
 }
 
+function initial_position() {
+    context2.beginPath()
+    context2.arc(x2, y2, 13, 0, 2 * Math.PI);
+    context2.fillStyle = "red";
+    context2.fill();
+    context2.closePath();
+}
+
+function initial_position2() {
+    context3.beginPath()
+    context3.arc(x, y, 13, 0, 2 * Math.PI);
+    context3.fillStyle = "blue";
+    context3.fill();
+    context3.closePath();
+}
+
 function update() {
-    context2.clearRect(0, 0, canvas2.width, canvas2.height);
-    context3.clearRect(0, 0, canvas2.width, canvas2.height);
+    turns();
+}
 
-    let turn = true;
+let turn = 0;
+let player1_turn=false;
+let player2_turn=false;
 
-    if (turn) {
-        draw();
-        turn = false;
-    } else {
-        draw2();
-        turn = true;
+function turns() {  
+    if (turn > 1) {
+        turn = 0
     }
+
+    if (player1_turn == false && player2_turn == false) {
+        context2.clearRect(0, 0, canvas2.width, canvas2.height);
+        context3.clearRect(0, 0, canvas3.width, canvas3.height);
+        draw();
+        draw2();
+        player1_turn = true;
+    }
+
+    if (turn == 0) {
+        player2_turn=false;
+        player1_turn=true;
+        draw();
+        initial_position2();
+    } else if (turn == 1) {
+        player2_turn=true;
+        player1_turn=false;
+        draw2();
+        initial_position();
+    }
+    turn++;
 }

@@ -19,6 +19,7 @@
 
     <canvas id="myCanvas" height="700" width="700"></canvas>
     <canvas id="myCanvas2" height="700" width="700"></canvas>
+    <canvas id="myCanvas3" height="700" width="700"></canvas>
 
     <button id="click" type="button" onclick="update()">click</button>
 

@@ -295,6 +295,12 @@ footer ul {
     border-radius: 10px;
 }
 
+#myCanvas3 {
+    position: absolute;
+    left: 2%;
+    border-radius: 10px;
+}
+
 #click {
     position: absolute;
     right: 100px;
