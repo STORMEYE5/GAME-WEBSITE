@@ -34,6 +34,8 @@
         </form>
     </div>
 
+    <button type="button" id="logout" class="logout" onclick="logout()">LOGOUT</button>
+
     <script src="../JavaScript/login.js"></script>
 
 <?php

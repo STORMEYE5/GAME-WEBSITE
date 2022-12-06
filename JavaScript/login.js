@@ -152,3 +152,12 @@ function save_to_session_storage(userId) {
 
     sessionStorage.setItem(userId, session_object_string);
 }
+
+function logout() {
+    if (sessionStorage.length != 0) {
+        sessionStorage.clear();
+        alert('SUCCESSFULLY LOGGED OUT')
+    } else {
+        alert('YOU ARE NOT LOGGED IN')
+    }
+}

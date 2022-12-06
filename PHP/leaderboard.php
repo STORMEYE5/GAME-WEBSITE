@@ -14,9 +14,19 @@
 	<!-- Contents of the page -->
     <div class="leaderboard-box">
         <div class="box-title">
-            <div class="box-div">test</div>
-            <div class="box-div">test2</div>
+            <div id="name" class="box-div">?</div>
+            <div id="score" class="box-div">?</div>
         </div>
+<?php
+        for ($i = 0; $i < 10; $i++) {
+            echo <<< END
+        <div class="box-data">
+            <div id="name" class="box-data-div">?</div>
+            <div id="score" class="box-data-div">?</div>
+        </div>
+        END;
+        }
+?>
     </div>
     
     <h1 class="text" id="welcome-text">WELCOME</h1>
@@ -29,4 +39,4 @@
 
     //Output the end
     output_tail();
-?>
+    ?>

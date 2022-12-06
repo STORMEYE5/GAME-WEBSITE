@@ -1,13 +1,26 @@
+let score = 0;
+let money1 = 1500;
+let money2 = 1500;
+let game_loop1 = 0;
+let game_loop2 = 0;
+let player1_properties = [];
+let player2_properties = [];
+let properties = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
+let amount = [60, 60, 100, 100, 120, 140, 140, 160, 180, 180, 200, 220, 220, 240, 260, 260, 280, 300, 300, 320, 250, 400]
+
 window.onload = function () {
     update();
+    // document.addEventListener("click", function() {
+    //     update();
+    // })
 }
+
 var rndNum;
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
 // Clip a rectangular area
 ctx.rect(0, 0, c.width, c.height);
-ctx.stroke();
 ctx.clip();
 
 const img = new Image();
@@ -25,12 +38,43 @@ var context2 = canvas2.getContext("2d");
 var canvas3 = document.getElementById("myCanvas3");
 var context3 = canvas2.getContext("2d");
 
-// var rndNum = Math.floor((Math.random() * 6) + 1);
-// document.getElementById("click").innerHTML = rndNum;
+function update() {
+    turns();
+}
 
-function random_generator() {
-    rndNum = Math.floor((Math.random() * 6) + 1);
-    document.getElementById("click").innerHTML = rndNum;
+let turn = 0;
+let player1_turn=false;
+let player2_turn=false;
+
+function turns() {  
+    if (turn > 1) {
+        turn = 0
+    }
+
+    if (player1_turn == false && player2_turn == false) {
+        context2.clearRect(0, 0, canvas2.width, canvas2.height);
+        context3.clearRect(0, 0, canvas3.width, canvas3.height);
+        draw();
+        draw2();
+        player1_turn = true;
+    }
+
+    if (turn == 0) {
+        player2_turn=false;
+        player1_turn=true;
+        draw();
+        initial_position2();
+        display_property;
+    } else if (turn == 1) {
+        player2_turn=true;
+        player1_turn=false;
+        draw2();
+        initial_position();
+        display_property;
+    }
+    turn++;
+    display_property();
+    update_score();
 }
 
 let dx = -58;
@@ -46,11 +90,11 @@ const myInterval2 = setInterval(draw2, 1000);
 
 function draw() {    
     if (player1_turn){
-        random_generator()
+        // random_generator();
     }
     context2.clearRect(0, 0, canvas2.width, canvas2.height);
    
-    context2.beginPath()
+    context2.beginPath();
     context2.arc(x2, y2, 13, 0, 2 * Math.PI);
     context2.fillStyle = "red";
     context2.fill();
@@ -59,8 +103,14 @@ function draw() {
     for (let num = 0; num < rndNum; num++) {
         if (x2 == 650 && y2 == 630) {
             x2 += -72;
+            game_loop1++;
             continue;
-        } 
+        }
+        if (game_loop1 >= 2){
+            if (x2 == 578 && y2 == 630) {
+                money1 += 200;
+            }
+        }
         if (x2 < 600 && x2 > 150 && y2 == 630) {
             x2 += -58;
             continue;
@@ -110,7 +160,7 @@ function draw() {
 }
 
 function initial_position() {
-    context2.beginPath()
+    context2.beginPath();
     context2.arc(x2, y2, 13, 0, 2 * Math.PI);
     context2.fillStyle = "red";
     context2.fill();
@@ -119,11 +169,11 @@ function initial_position() {
 
 function draw2() {
     if (player2_turn){
-        random_generator()
+        random_generator();
     }
     context3.clearRect(0, 0, canvas3.width, canvas3.height);
 
-    context3.beginPath()
+    context3.beginPath();
     context3.arc(x, y, 13, 0, 2 * Math.PI);
     context3.fillStyle = "blue";
     context3.fill();
@@ -132,8 +182,14 @@ function draw2() {
     for (let num = 0; num < rndNum; num++) {
         if (x == 650 && y == 660) {
             x += -72;
+            game_loop2++;
             continue;
         } 
+        if (game_loop2 >= 2){
+            if (x == 578 && y == 660) {
+                money2 += 200;
+            }
+        }
         if (x < 600 && x > 150 && y == 660) {
             x += -58;
             continue;
@@ -190,37 +246,58 @@ function initial_position2() {
     context3.closePath();
 }
 
-function update() {
-    turns();
+function update_score() {
+    document.getElementById("score1").innerHTML = "Player1: " + money1;
+    document.getElementById("score2").innerHTML = "Player2: " + money2;
 }
 
-let turn = 0;
-let player1_turn=false;
-let player2_turn=false;
-
-function turns() {  
-    if (turn > 1) {
-        turn = 0
+function display_property() {
+    if (x2 == 520) {
+        const element = document.getElementsByClassName("property_colour");
+        element[0].style.backgroundColor = "brown";
+    }
+    if (x2 == 288) {
+        const element = document.getElementsByClassName("property_colour");
+        element[0].style.backgroundColor = "blue";
     }
 
-    if (player1_turn == false && player2_turn == false) {
-        context2.clearRect(0, 0, canvas2.width, canvas2.height);
-        context3.clearRect(0, 0, canvas3.width, canvas3.height);
-        draw();
-        draw2();
-        player1_turn = true;
+    if (x == 520) {
+        const element = document.getElementsByClassName("property_colour2");
+        element[0].style.backgroundColor = "brown";
     }
+    if (x == 288) {
+        const element = document.getElementsByClassName("property_colour2");
+        element[0].style.backgroundColor = "blue";
+    }
+}
 
-    if (turn == 0) {
-        player2_turn=false;
-        player1_turn=true;
-        draw();
-        initial_position2();
-    } else if (turn == 1) {
-        player2_turn=true;
-        player1_turn=false;
-        draw2();
-        initial_position();
+function random_generator() {
+    rndNum = 1;
+    // rndNum = Math.floor((Math.random() * 6) + 1);
+    // document.getElementById("click").innerHTML = rndNum;
+}
+
+function check_properties() {
+    for (let num_prop = 0; num_prop < (properties.length); num_prop++) {
+        if (player1_properties.includes(properties[num_prop])) {
+            alert('owned');
+            break;
+        } else {
+            return;
+        }
     }
-    turn++;
+}
+
+function buy() {
+
+    if (x2 == 578 && y2 == 630) {
+        check_properties();
+        if (!check_properties()) {
+            money1 -= amount[0];
+            player1_properties.append(properties[0]);
+        }
+        
+    }
+    
+    update_score();
 }

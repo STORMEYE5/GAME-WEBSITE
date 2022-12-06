@@ -22,6 +22,15 @@
     <canvas id="myCanvas3" height="700" width="700"></canvas>
 
     <button id="click" type="button" onclick="update()">click</button>
+    <div id="score1" class="score_display">score</div>
+    <div id="score2" class="score_display">score</div>
+    <div class="property_card">
+        <div class="property_colour">test</div>
+        <button class="buy" onclick="buy()">BUY</button>
+    </div>
+    <!-- <div class="property_card2">
+        <div class="property_colour2">test</div>
+    </div> -->
 
     <script type="text/javascript"src="../JavaScript/game.js"></script>
 
