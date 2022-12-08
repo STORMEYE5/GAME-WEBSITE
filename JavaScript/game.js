@@ -10,9 +10,6 @@ let amount = [60, 60, 100, 100, 120, 140, 140, 160, 180, 180, 200, 220, 220, 240
 
 window.onload = function () {
     update();
-    // document.addEventListener("click", function() {
-    //     update();
-    // })
 }
 
 var rndNum;
@@ -64,16 +61,14 @@ function turns() {
         player1_turn=true;
         draw();
         initial_position2();
-        display_property;
     } else if (turn == 1) {
         player2_turn=true;
         player1_turn=false;
         draw2();
         initial_position();
-        display_property;
     }
+
     turn++;
-    display_property();
     update_score();
 }
 
@@ -90,7 +85,7 @@ const myInterval2 = setInterval(draw2, 1000);
 
 function draw() {    
     if (player1_turn){
-        // random_generator();
+        random_generator();
     }
     context2.clearRect(0, 0, canvas2.width, canvas2.height);
    
@@ -109,6 +104,7 @@ function draw() {
         if (game_loop1 >= 2){
             if (x2 == 578 && y2 == 630) {
                 money1 += 200;
+                score += 200;
             }
         }
         if (x2 < 600 && x2 > 150 && y2 == 630) {
@@ -279,52 +275,48 @@ function update_score(score) {
     localStorage.setItem(userId, JSON.stringify(new_user_details));
 }
 
-function display_property() {
-    if (x2 == 520) {
-        const element = document.getElementsByClassName("property_colour");
-        element[0].style.backgroundColor = "brown";
-    }
-    if (x2 == 288) {
-        const element = document.getElementsByClassName("property_colour");
-        element[0].style.backgroundColor = "blue";
-    }
-
-    if (x == 520) {
-        const element = document.getElementsByClassName("property_colour2");
-        element[0].style.backgroundColor = "brown";
-    }
-    if (x == 288) {
-        const element = document.getElementsByClassName("property_colour2");
-        element[0].style.backgroundColor = "blue";
-    }
-}
-
 function random_generator() {
-    rndNum = 1;
-    // rndNum = Math.floor((Math.random() * 6) + 1);
-    // document.getElementById("click").innerHTML = rndNum;
+    rndNum = Math.floor((Math.random() * 6) + 1);
+    document.getElementById("click").innerHTML = rndNum;
 }
 
-function check_properties() {
-    for (let num_prop = 0; num_prop < (properties.length); num_prop++) {
-        if (player1_properties.includes(properties[num_prop])) {
-            alert('owned');
-            break;
-        } else {
-            return;
-        }
+function check_properties(index_pos) {
+    owned = false;
+    if (player1_properties.includes(properties[index_pos])) {
+        owned = true;
+        alert('owned');
+    } else {
+        return;
     }
 }
 
 function buy() {
-    if (x2 == 578 && y2 == 630) {
-        check_properties();
-        if (!check_properties()) {
-            money1 -= amount[0];
-            player1_properties.push(properties[0]);
-            score += amount[0];
-        }   
+    let coordinates = [650, 578, 462, 288, 172, 114]
+    let y_coordinates = [630, 558, 442, 384, 268, 152, 94]
+
+    for (var index_pos_y = 0; index_pos_y < y_coordinates.length; index_pos_y++) {
+        for (var index_pos = 0; index_pos < coordinates.length; index_pos++) {
+            if (x2 == coordinates[index_pos] && y2 == y_coordinates[index_pos_y]) {
+                check_properties(index_pos);
+                if (!check_properties()) {
+                    money1 -= amount[index_pos];
+                    player1_properties.push(properties[index_pos]);
+                    score += amount[index_pos];
+                    break;
+                }
+            }
+        }
     }
+    
+
+    // if (x2 == 462 && y2 == 630) {
+    //     check_properties();
+    //     if (!check_properties()) {
+    //         money1 -= amount[0];
+    //         player1_properties.push(properties[0]);
+    //         score += amount[0];
+    //     }
+    // }
     
     update_score(score);
 }

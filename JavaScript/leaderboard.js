@@ -5,22 +5,21 @@ let new_user_details;
 let details;
 let score_details = [];
 
+var user_name = (session_user.Name);
+
+document.getElementById("welcome-text").innerHTML = "WELCOME " + user_name;
+
+for (var i = 0; i < localStorage.length; i++) {
+    var userId = localStorage.key(i);
+
+    user_details = JSON.parse(localStorage.getItem(userId));
+
+    score_details.push(user_details)
+}
+sortArray();
+
 window.onload = function() {
-    var user_name = (session_user.Name);
-
-    document.getElementById("welcome-text").innerHTML = "WELCOME " + user_name;
-
-    for (var i = 0; i < localStorage.length; i++) {
-        var userId = localStorage.key(i);
-
-        user_details = JSON.parse(localStorage.getItem(userId));
-
-        score_details.push(user_details)
-    }
-
-    if (localStorage.length > 1) {
-        sortArray();
-    }
+    display_ranks();
 }
 
 function sortArray() {
@@ -42,8 +41,10 @@ function save_sorted_to_local_storage() {
 
         details_string = JSON.stringify(details);
         localStorage.setItem(user_id, details_string);
+        continue;
     }
-    display_ranks();
+
+    // display_ranks();
 }
 
 function display_ranks() {
@@ -52,15 +53,14 @@ function display_ranks() {
     if (localStorage.length < 10) {
         storage_length = localStorage.length;
     } else {
-        storage_length = 10
+        storage_length = 10;
     }
 
     for (var index2 = 0; index2 < storage_length; index2++) {
-        // key_value = 0
         key_value = localStorage.key(index2);
         temp_details = JSON.parse(localStorage.getItem(key_value));
         document.getElementById("name" + index2).innerHTML = (temp_details.Name);
         document.getElementById("score" + index2).innerHTML = (temp_details.Highscore);
-        
+        continue;
     }
 }
