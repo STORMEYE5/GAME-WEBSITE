@@ -308,15 +308,5 @@ function buy() {
         }
     }
     
-
-    // if (x2 == 462 && y2 == 630) {
-    //     check_properties();
-    //     if (!check_properties()) {
-    //         money1 -= amount[0];
-    //         player1_properties.push(properties[0]);
-    //         score += amount[0];
-    //     }
-    // }
-    
     update_score(score);
 }
