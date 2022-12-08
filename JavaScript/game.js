@@ -246,9 +246,38 @@ function initial_position2() {
     context3.closePath();
 }
 
-function update_score() {
-    document.getElementById("score1").innerHTML = "Player1: " + money1;
-    document.getElementById("score2").innerHTML = "Player2: " + money2;
+function update_score(score) {
+    document.getElementById("game_score1").innerHTML = "Player1: " + money1;
+    document.getElementById("game_score2").innerHTML = "Player2: " + money2;
+
+    var userId = sessionStorage.key(0);
+
+    let parsed_object = JSON.parse(localStorage.getItem(userId));
+    // let session_parsed_object = JSON.parse(sessionStorage.getItem(userId));
+
+    var temp_name = (parsed_object.Name);
+    var temp_highscore = (parsed_object.Highscore);
+
+    if (score > temp_highscore) {
+        sessionStorage.removeItem(parsed_object.Highscore);
+        temp_highscore = score;
+    }
+
+    let session_object = {
+        ID: userId,
+        Name: temp_name, 
+        Highscore: temp_highscore,
+    };
+
+    let session_object_string = JSON.stringify(session_object);
+    
+    sessionStorage.setItem(userId, session_object_string);
+
+    const highscore = {Highscore: temp_highscore};
+    
+    const new_user_details = Object.assign(parsed_object, highscore);
+
+    localStorage.setItem(userId, JSON.stringify(new_user_details));
 }
 
 function display_property() {
@@ -261,10 +290,10 @@ function display_property() {
         element[0].style.backgroundColor = "blue";
     }
 
-    if (x == 520) {
-        const element = document.getElementsByClassName("property_colour2");
-        element[0].style.backgroundColor = "brown";
-    }
+    // if (x == 520) {
+    //     const element = document.getElementsByClassName("property_colour2");
+    //     element[0].style.backgroundColor = "brown";
+    // }
     if (x == 288) {
         const element = document.getElementsByClassName("property_colour2");
         element[0].style.backgroundColor = "blue";
@@ -294,10 +323,11 @@ function buy() {
         check_properties();
         if (!check_properties()) {
             money1 -= amount[0];
-            player1_properties.append(properties[0]);
+            player1_properties.push(properties[0]);
+            score += amount[0];
         }
         
     }
     
-    update_score();
+    update_score(score);
 }

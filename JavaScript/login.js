@@ -145,7 +145,7 @@ function save_to_session_storage(userId) {
     let session_object = {
         ID: userId,
         Name: temp_name, 
-        Highscore: temp_nhighscore,
+        Highscore: 0,
     };
 
     let session_object_string = JSON.stringify(session_object);

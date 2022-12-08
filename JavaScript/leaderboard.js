@@ -2,48 +2,65 @@ var user_key = sessionStorage.key(0);
 let session_user = JSON.parse(sessionStorage.getItem(user_key));
 let user_details;
 let new_user_details;
-let board_details;
 let details;
 let score_details = [];
-var temp_array1;
 
 window.onload = function() {
     var user_name = (session_user.Name);
 
     document.getElementById("welcome-text").innerHTML = "WELCOME " + user_name;
 
-    var i, local_key;
-    for (i = 0; i < localStorage.length; i++) {
-        local_key = localStorage.key(i);
-        user_details = JSON.parse(localStorage.getItem(local_key));
+    for (var i = 0; i < localStorage.length; i++) {
+        var userId = localStorage.key(i);
 
-        localStorage.removeItem(user_details.Highscore);
+        user_details = JSON.parse(localStorage.getItem(userId));
 
-        var random = randomXToY(101, 999);
-
-        new_user_details = Object.assign(user_details,{Highscore : random});
-
-        localStorage.setItem(local_key, JSON.stringify(new_user_details));
-        score_details.push(user_details.Highscore)
+        score_details.push(user_details)
     }
 
-    sortArray();
-
-    score_details;
+    if (localStorage.length > 1) {
+        sortArray();
+    }
 }
 
 function sortArray() {
-    for (j = 0; j < score_details.length; j++) {
-        if (score_details[j + 1] < score_details[j]){
-            temp_array1 = score_details[j];
-            score_details[j] = score_details[j+1];
-            score_details[j+1] = temp_array1;
+    for (var j = 1; j < score_details.length; j++) 
+    for (var k = 0; k < j; k++)
+        if (score_details[j].Highscore > score_details[k].Highscore) {
+          var x = score_details[j];
+          score_details[j] = score_details[k];
+          score_details[k] = x;
         }
-    }
+    save_sorted_to_local_storage();
 }
 
-function randomXToY(minVal,maxVal)
-{
-  var randVal = minVal+(Math.random()*(maxVal-minVal));
-  return Math.round(randVal);
+function save_sorted_to_local_storage() {
+    localStorage.clear()
+    for (var index = 0; index < score_details.length; index++) {
+        user_id = score_details[index].ID;
+        details = score_details[index];
+
+        details_string = JSON.stringify(details);
+        localStorage.setItem(user_id, details_string);
+    }
+    display_ranks();
+}
+
+function display_ranks() {
+    var storage_length;
+
+    if (localStorage.length < 10) {
+        storage_length = localStorage.length;
+    } else {
+        storage_length = 10
+    }
+
+    for (var index2 = 0; index2 < storage_length; index2++) {
+        key_value = 0
+        key_value = localStorage.key(index2);
+        temp_details = JSON.parse(localStorage.getItem(key_value));
+            document.getElementById("name" + index2).innerHTML = (temp_details.Name);
+            document.getElementById("score" + index2).innerHTML = (temp_details.Highscore);
+        
+    }
 }

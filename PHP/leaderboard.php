@@ -14,17 +14,18 @@
 	<!-- Contents of the page -->
     <div class="leaderboard-box">
         <div class="box-title">
-            <div id="name" class="box-div">?</div>
-            <div id="score" class="box-div">?</div>
+            <div id="title-name" class="box-div">NAME</div>
+            <div id="title-score" class="box-div">SCORE</div>
         </div>
 <?php
         for ($i = 0; $i < 10; $i++) {
             echo <<< END
-        <div class="box-data">
-            <div id="name" class="box-data-div">?</div>
-            <div id="score" class="box-data-div">?</div>
-        </div>
-        END;
+            <div class="box-data">
+                <div id="name$i" class="box-data-div">?</div>
+                <div id="score$i" class="box-data-div">?</div>
+            </div>
+        
+    END;
         }
 ?>
     </div>
