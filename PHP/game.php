@@ -21,11 +21,11 @@
     <canvas id="myCanvas2" height="700" width="700"></canvas>
     <canvas id="myCanvas3" height="700" width="700"></canvas>
 
-    <button id="click" type="button" onclick="update()">click</button>
+    <button id="click" type="button" onclick="update()">ROLL DICE</button>
     <div id="game_score1" class="score_display">score</div>
     <div id="game_score2" class="score_display">score</div>
     <div class="property_card">
-        <div class="property_colour">test</div>
+        <div class="property_colour">PROPERTY</div>
         <button class="buy" onclick="buy()">BUY</button>
     </div>
     <!-- <div class="property_card2">

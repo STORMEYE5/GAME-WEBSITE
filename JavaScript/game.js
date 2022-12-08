@@ -10,6 +10,10 @@ let amount = [60, 60, 100, 100, 120, 140, 140, 160, 180, 180, 200, 220, 220, 240
 
 window.onload = function () {
     update();
+    var user_key = sessionStorage.key(0);
+    let session_user = JSON.parse(sessionStorage.getItem(user_key));
+    var user_name = (session_user.Name);
+    document.getElementById("welcome-text").innerHTML = "WELCOME " + user_name;
 }
 
 var rndNum;
@@ -277,7 +281,6 @@ function update_score(score) {
 
 function random_generator() {
     rndNum = Math.floor((Math.random() * 6) + 1);
-    document.getElementById("click").innerHTML = rndNum;
 }
 
 function check_properties(index_pos) {
@@ -298,7 +301,7 @@ function buy() {
         for (var index_pos = 0; index_pos < coordinates.length; index_pos++) {
             if (x2 == coordinates[index_pos] && y2 == y_coordinates[index_pos_y]) {
                 check_properties(index_pos);
-                if (!check_properties()) {
+                if (owned == false) {
                     money1 -= amount[index_pos];
                     player1_properties.push(properties[index_pos]);
                     score += amount[index_pos];

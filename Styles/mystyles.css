@@ -199,12 +199,11 @@ img{
 /* HOME PAGE */
 /* STYLING GAME BOX ON HOME PAGE */
 .small-game-box {
-    width: 65%;
+    width: 700PX;
     height: 700px;
     position: absolute;
     left: 20px;
-    top: 65px;
-    background-color: white;
+    top: 60px;
     border-radius: 10px;
 }
 
@@ -214,8 +213,7 @@ img{
     height: 700px;
     position: absolute;
     right: 20px;
-    top: 65px;
-    background-color: white;
+    top: 60px;
     border-radius: 10px;
 }
 
@@ -297,11 +295,13 @@ footer ul {
 #click {
     position: absolute;
     right: 100px;
+    width: 50px;
+    height: 40PX;
 }
 
 #game_score1{
     position: absolute;
-    top: 100px;
+    top: 110px;
     right: 100px;
     font-size: 20px;
     font-weight: bold;
@@ -309,7 +309,7 @@ footer ul {
 
 #game_score2{
     position: absolute;
-    top: 130px;
+    top: 140px;
     right: 100px;
     font-size: 20px;
     font-weight: bold;
