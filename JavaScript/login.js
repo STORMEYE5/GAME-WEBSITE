@@ -1,5 +1,6 @@
 let password_check = RegExp("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})");
 let btn_click;
+let my_object_destring;
 
 var x = document.getElementById("login");
 var y = document.getElementById("register");
@@ -90,17 +91,19 @@ function user_login() {
     var sign_id = document.getElementById("login_userId").value;
     var sign_password = document.getElementById("login_password").value;
 
-    // sessionId_check = JSON.parse(sessionStorage.getItem(sign_id));
-
     if (sessionStorage.length != 0) {
         alert('YOU NEED TO LOG OUT FIRST');
         return;
     }
 
-    let my_object_destring = JSON.parse(localStorage.getItem(sign_id));
-
-    var userId = (my_object_destring.ID);
-    var user_password = (my_object_destring.Password);
+    for (var j = 0; j < localStorage.length; j++) {
+        if (sign_id == localStorage.key(j)) {
+            my_object_destring = JSON.parse(localStorage.getItem(sign_id));
+            var userId = (my_object_destring.ID);
+            var user_password = (my_object_destring.Password);
+            break;
+        } 
+    }
 
     if ((sign_id) == '' && (sign_password) == '') {
         alert('INVALID CREDENTIALS');

@@ -56,11 +56,11 @@ function display_ranks() {
     }
 
     for (var index2 = 0; index2 < storage_length; index2++) {
-        key_value = 0
+        // key_value = 0
         key_value = localStorage.key(index2);
         temp_details = JSON.parse(localStorage.getItem(key_value));
-            document.getElementById("name" + index2).innerHTML = (temp_details.Name);
-            document.getElementById("score" + index2).innerHTML = (temp_details.Highscore);
+        document.getElementById("name" + index2).innerHTML = (temp_details.Name);
+        document.getElementById("score" + index2).innerHTML = (temp_details.Highscore);
         
     }
 }

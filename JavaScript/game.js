@@ -253,7 +253,6 @@ function update_score(score) {
     var userId = sessionStorage.key(0);
 
     let parsed_object = JSON.parse(localStorage.getItem(userId));
-    // let session_parsed_object = JSON.parse(sessionStorage.getItem(userId));
 
     var temp_name = (parsed_object.Name);
     var temp_highscore = (parsed_object.Highscore);
@@ -290,10 +289,10 @@ function display_property() {
         element[0].style.backgroundColor = "blue";
     }
 
-    // if (x == 520) {
-    //     const element = document.getElementsByClassName("property_colour2");
-    //     element[0].style.backgroundColor = "brown";
-    // }
+    if (x == 520) {
+        const element = document.getElementsByClassName("property_colour2");
+        element[0].style.backgroundColor = "brown";
+    }
     if (x == 288) {
         const element = document.getElementsByClassName("property_colour2");
         element[0].style.backgroundColor = "blue";
@@ -318,15 +317,13 @@ function check_properties() {
 }
 
 function buy() {
-
     if (x2 == 578 && y2 == 630) {
         check_properties();
         if (!check_properties()) {
             money1 -= amount[0];
             player1_properties.push(properties[0]);
             score += amount[0];
-        }
-        
+        }   
     }
     
     update_score(score);
