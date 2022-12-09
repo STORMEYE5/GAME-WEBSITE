@@ -18,10 +18,6 @@ for (var i = 0; i < localStorage.length; i++) {
 }
 sortArray();
 
-window.onload = function() {
-    display_ranks();
-}
-
 function sortArray() {
     for (var j = 1; j < score_details.length; j++) 
     for (var k = 0; k < j; k++)
@@ -36,31 +32,17 @@ function sortArray() {
 function save_sorted_to_local_storage() {
     localStorage.clear()
     for (var index = 0; index < score_details.length; index++) {
-        user_id = score_details[index].ID;
+        var user_id = score_details[index].ID;
         details = score_details[index];
 
         details_string = JSON.stringify(details);
         localStorage.setItem(user_id, details_string);
+
+        document.getElementById("name" + index).innerHTML = (details.Name);
+        document.getElementById("score" + index).innerHTML = (details.Highscore);
         continue;
     }
-
-    // display_ranks();
 }
 
-function display_ranks() {
-    var storage_length;
-
-    if (localStorage.length < 10) {
-        storage_length = localStorage.length;
-    } else {
-        storage_length = 10;
-    }
-
-    for (var index2 = 0; index2 < storage_length; index2++) {
-        key_value = localStorage.key(index2);
-        temp_details = JSON.parse(localStorage.getItem(key_value));
-        document.getElementById("name" + index2).innerHTML = (temp_details.Name);
-        document.getElementById("score" + index2).innerHTML = (temp_details.Highscore);
-        continue;
-    }
+window.onload = function() {
 }

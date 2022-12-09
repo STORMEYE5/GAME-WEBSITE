@@ -48,7 +48,8 @@ function checkLoginPassword() {
     btn_click[0].disabled = !result1;
 }
 
-function registration(){
+function registration(e){
+    e.preventDefault();
     var reg_userId = document.getElementById("register_userId").value;
     var reg_name = document.getElementById("name").value;
     var reg_email_address = document.getElementById("email_address").value;
@@ -66,7 +67,6 @@ function registration(){
             alert('USERNAME IS ALREADY TAKEN');
         } else if (localStorage.length == 0) {
             save_to_local_storage(reg_userId, reg_name, reg_email_address, reg_user_password, reg_phone_number, reg_address);
-            //return;
         } else {
             var i, l;
             for (i = 0; i < localStorage.length; i++) {
