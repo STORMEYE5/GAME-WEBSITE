@@ -8,6 +8,7 @@ let player2_properties = [];
 let properties = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
 let amount = [0, 60, 60, 100, 100, 120, 140, 140, 160, 180, 180, 200, 220, 220, 240, 260, 260, 280, 300, 300, 320, 250, 400]
 
+// RUN FUNCTION UPDATE WHEN THE PAGE HAS BEEN LOADED
 window.onload = function () {
     update();
     var user_key = sessionStorage.key(0);

@@ -32,7 +32,7 @@
         <div class="property_colour2">test</div>
     </div> -->
 
-    <script type="text/javascript"src="../JavaScript/game.js"></script>
+    <script type="text/javascript" src="../JavaScript/game.js"></script>
 
 <?php
     //Output footer
