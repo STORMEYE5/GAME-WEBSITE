@@ -13,9 +13,6 @@
 	
 	<!-- Contents of the page -->
     <h1 class="text" id="welcome-text">WELCOME</h1>
-    <!-- <div class="game-box">
-        <div class="title">GAME</div>
-    </div> -->
 
     <canvas id="myCanvas" height="700" width="700"></canvas>
     <canvas id="myCanvas2" height="700" width="700"></canvas>
@@ -28,9 +25,6 @@
         <div class="property_colour">PROPERTY</div>
         <button class="buy" onclick="buy()">BUY</button>
     </div>
-    <!-- <div class="property_card2">
-        <div class="property_colour2">test</div>
-    </div> -->
 
     <script type="text/javascript" src="../JavaScript/game.js"></script>
 

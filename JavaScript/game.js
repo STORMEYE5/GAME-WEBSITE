@@ -40,6 +40,7 @@ var context2 = canvas2.getContext("2d");
 var canvas3 = document.getElementById("myCanvas3");
 var context3 = canvas2.getContext("2d");
 
+// FUNCTION TO UPDATE THE LOCATION OF THE PAWNS
 function update() {
     turns();
 }
@@ -48,6 +49,7 @@ let turn = 0;
 let player1_turn=false;
 let player2_turn=false;
 
+// FUNCTION TO ALTERNATE TURNS BETWEEN PLAYERS 
 function turns() {  
     if (turn > 1) {
         turn = 0
@@ -88,6 +90,7 @@ let y2 = 630;
 const myInterval = setInterval(draw, 1000);
 const myInterval2 = setInterval(draw2, 1000);
 
+// FUNCTION TO DRAW PAWN 1
 function draw() {    
     if (player1_turn){
         random_generator();
@@ -168,6 +171,7 @@ function initial_position() {
     context2.closePath();
 }
 
+// FUNCTION TO DRAW PAWN 2
 function draw2() {
     if (player2_turn){
         random_generator();
@@ -248,6 +252,7 @@ function initial_position2() {
     context3.closePath();
 }
 
+// FUNCTION TO CHANGE THE SCORE IN THE SESSION STORAGE
 function update_score(score) {
     document.getElementById("game_score1").innerHTML = "Player1: " + money1;
     document.getElementById("game_score2").innerHTML = "Player2: " + money2;
@@ -281,10 +286,12 @@ function update_score(score) {
     localStorage.setItem(userId, JSON.stringify(new_user_details));
 }
 
+// FUNCTION TO GENERATE A RANDOM NUMBER BETWEEN 1 AND 6
 function random_generator() {
     rndNum = Math.floor((Math.random() * 6) + 1);
 }
 
+// FUNCTION TO CHECK IF A PROPERTY IS ALREADY OWNED
 function check_properties(index_pos) {
     owned = false;
     if (player1_properties.includes(properties[index_pos])) {
@@ -295,6 +302,7 @@ function check_properties(index_pos) {
     }
 }
 
+// FUNCTION TO PURCHASE PROPERTY
 function buy() {
     let coordinates = [650, 578, 462, 288, 172, 114]
     let y_coordinates = [630, 558, 442, 384, 268, 152, 94]

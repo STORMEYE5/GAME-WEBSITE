@@ -9,6 +9,7 @@ var user_name = (session_user.Name);
 
 document.getElementById("welcome-text").innerHTML = "WELCOME " + user_name;
 
+// LOOP TO STORE OBJECTS IN AN ARRAY
 for (var i = 0; i < localStorage.length; i++) {
     var userId = localStorage.key(i);
 
@@ -16,8 +17,11 @@ for (var i = 0; i < localStorage.length; i++) {
 
     score_details.push(user_details)
 }
+
+// CALL FUNCTION
 sortArray();
 
+// FUNCTION TO SORT THE ARRAY OF OBJECTS IN DESCENDING ORDER
 function sortArray() {
     for (var j = 1; j < score_details.length; j++) 
     for (var k = 0; k < j; k++)
@@ -29,6 +33,7 @@ function sortArray() {
     save_sorted_to_local_storage();
 }
 
+// FUNCTION TO SAVE THE ARRAY OF OBJECTS' ELEMENTS IN LOCAL STORAGE
 function save_sorted_to_local_storage() {
     localStorage.clear()
     for (var index = 0; index < score_details.length; index++) {
@@ -42,7 +47,4 @@ function save_sorted_to_local_storage() {
         document.getElementById("score" + index).innerHTML = (details.Highscore);
         continue;
     }
-}
-
-window.onload = function() {
 }

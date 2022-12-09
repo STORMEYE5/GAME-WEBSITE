@@ -6,6 +6,7 @@ var x = document.getElementById("login");
 var y = document.getElementById("register");
 var z = document.getElementById("btn");
 
+//  RUNNING FUNCTION WHEN PAGE HAS FULLY LOADED
 window.onload = function ()
 {
     btn_click = document.getElementsByClassName("submit-btn");
@@ -34,6 +35,7 @@ function login(){
     z.style.left = "0";
 }
 
+// FUNCTION TO CHECK FOR PASSWORD SYNTAX FOR REGISTRATION
 function checkRegistrationPassword() {
     let verified_password = document.getElementById("register_password").value;
     let result = password_check.test(verified_password);
@@ -41,6 +43,7 @@ function checkRegistrationPassword() {
     btn_click[1].disabled = !result;
 }
 
+// FUNCTION TO CHECK FOR PASSWORD SYNTAX FOR LOGIN
 function checkLoginPassword() {
     let rnd_password = document.getElementById("login_password").value;
     let result1 = password_check.test(rnd_password);
@@ -48,6 +51,7 @@ function checkLoginPassword() {
     btn_click[0].disabled = !result1;
 }
 
+// FUNCTION TO REGISTER
 function registration(e){
     e.preventDefault();
     var reg_userId = document.getElementById("register_userId").value;
@@ -87,6 +91,7 @@ function registration(e){
     }
 }
 
+// FUNCTION TO LOGIN
 function user_login() {
     var sign_id = document.getElementById("login_userId").value;
     var sign_password = document.getElementById("login_password").value;
@@ -119,6 +124,7 @@ function user_login() {
     }
 }
 
+// FUNCTION TO SAVE DATA TO LOCAL STORAGE
 function save_to_local_storage(reg_userId, reg_name, reg_email_address, reg_user_password, reg_phone_number, reg_address) {
     let my_object = {
         ID: reg_userId,
@@ -139,6 +145,7 @@ function save_to_local_storage(reg_userId, reg_name, reg_email_address, reg_user
     location.reload();
 }
 
+// FUNCTION TO SAVE DATA TO SESSION STORAGE
 function save_to_session_storage(userId) {
     parsed_object = JSON.parse(localStorage.getItem(userId));
 
@@ -156,6 +163,7 @@ function save_to_session_storage(userId) {
     sessionStorage.setItem(userId, session_object_string);
 }
 
+// FUNCTION TO REMOVE DATA FROM SESSION STORAGE 
 function logout() {
     if (sessionStorage.length != 0) {
         sessionStorage.clear();
