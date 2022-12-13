@@ -21,7 +21,7 @@
         <form method="post" id="login" class="input-group">
             <input id="login_userId" class="input-field" placeholder="User ID" autocomplete="off" required>
             <input id="login_password" type="password" class="input-field" placeholder="Password" autocomplete="off" required>
-            <button id="submit_btn" type="button" class="submit-btn"">Log in</button>
+            <button id="submit_btn" type="button" class="submit-btn">Log in</button>
         </form>
         <form id="register" class="input-group">
             <input id="register_userId" type="text" class="input-field" placeholder="User ID" autocomplete="off" required>
